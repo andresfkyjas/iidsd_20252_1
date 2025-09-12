@@ -29,7 +29,7 @@ jobs:
         run: pip install -e .
 
       - name: Step 5 - Ejecutar rutina
-        run: python /src/prueba_etl/main.py
+        run: python src/prueba_etl/main.py
 
       - name: Step 6 - Auto-commit & push (git)
         if: success()
