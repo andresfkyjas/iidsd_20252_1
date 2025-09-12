@@ -1,0 +1,42 @@
+name: Prueba de integracion
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v4
+
+      - name: Step 2 - Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9.2"
+
+      - name: Step 3 - Upgrade pip
+        run: python -m pip install --upgrade pip
+        shell: pwsh
+
+      - name: Step 4 - Instalar Dependencias
+        run: pip install -e .
+
+      - name: Step 5 - Ejecutar rutina
+        run: python /src/prueba_etl/main.py
+
+      - name: Step 6 - Auto-commit & push (git)
+        if: success()
+        run: |
+          git config user.name "Andres Callejas [GitHub Actions]"
+          git config user.email "andres.callejas@iudigital.edu.co"
+          git add datos_out.txt grafico_out.jpg
+          git commit -m "CI: despliegue en base de datos"
+          git push origin "${{ github.ref_name }}"
+        shell: bash
