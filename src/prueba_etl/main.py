@@ -9,7 +9,7 @@ from extractor import Extractor
 
 if __name__ == "__main__":
     # DataFrame de ejemplo
-    ruta_db = "/workspaces/iidsd_20252_1/src/prueba_etl/static/db/database.sqlite"
+    ruta_db = "src/prueba_etl/static/db/database.sqlite"
     url = "uom190346a/global-coffee-health-dataset"
     database = Database(ruta_db)
     extractor = Extractor()
