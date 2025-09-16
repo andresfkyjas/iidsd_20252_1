@@ -1,6 +1,6 @@
 # 🧩 Proyecto Base ETL + MLOps
 
-!(Imagen)[/docs/MLOps.png]
+![Imagen](docs/MLOps.png)
 
 Este repositorio es un **proyecto base de ETL** orientado al aprendizaje de **Ingeniería de Datos** y al despliegue de prácticas de **MLOps**.  
 
