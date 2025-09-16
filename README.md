@@ -46,11 +46,12 @@ El objetivo es enseñar cómo **extraer, transformar y cargar datos (ETL)**, man
     ├── .gitignore               # Archivos/carpetas ignoradas en Git
     ├── README.md                # Documentación principal
     └── setup.py                 # Configuración del paquete
+```
 
 📊 Diagrama del Flujo ETL + MLOps
 
 Este diagrama resume la arquitectura del pipeline:
-
+```bash
     ⚙️ Instalación
         1️⃣ Clonar el repositorio
             git clone https://github.com/andresfkyjas/iidsd_20252_1.git.git
@@ -69,7 +70,7 @@ Este diagrama resume la arquitectura del pipeline:
 
             Ejecutar el flujo ETL completo:
             python static/db/main.py
-
+```
 🔄 CI/CD con GitHub Actions
 
     Este proyecto incluye un workflow en .github/workflows/main.yml que permite:
@@ -107,9 +108,9 @@ Este diagrama resume la arquitectura del pipeline:
 🗄️ Base de Datos
 
     Motor: SQLite
-
+```bash
     Ubicación: static/db/database.sqlite
-
+```
     Administración: vía database.py
 
     Esto permite a los estudiantes trabajar sin necesidad de configurar un motor externo.
