@@ -31,12 +31,16 @@ jobs:
       - name: Step 5 - Ejecutar rutina
         run: python src/prueba_etl/main.py
 
+      - name: Debug - listar archivos generados
+        run: ls -R
+        shell: bash
+
       - name: Step 6 - Auto-commit & push (git)
         if: success()
         run: |
           git config user.name "Andres Callejas [GitHub Actions]"
           git config user.email "andres.callejas@iudigital.edu.co"
-          git add datos_out.txt grafico_out.jpg
-          git commit -m "CI: despliegue en base de datos"
+          git add src/prueba_etl/datos_out.txt src/prueba_etl/grafico_out.jpg || echo "No hay archivos para agregar"
+          git commit -m "CI: despliegue en base de datos" || echo "Nada que commitear"
           git push origin "${{ github.ref_name }}"
         shell: bash
